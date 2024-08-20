@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title id="popupTitle"></title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    #shortcut-list {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="popupTitle"></h1>
+  <a id="popupInfo" class="info" target="_blank" href="https://github.com/your-username/your-repo#how-to-use"></a>
+
+  <form>
+    <label>
+      <input type="radio" name="apply-option" id="apply-all">
+      <span id="popup-apply-all-message"></span>
+    </label>
+    <label>
+      <input type="radio" name="apply-option" id="apply-tab">
+      <span id="popup-apply-tab-message"></span>
+    </label>
+  </form>
+
+  <h2>Current Shortcuts:</h2>
+  <ul id="shortcut-list"></ul>
+
+  <script src="settings.js"></script>
+</body>
+</html>
