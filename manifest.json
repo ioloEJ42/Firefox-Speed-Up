@@ -1,44 +1,46 @@
 {
-    "manifest_version": 2,
-    "name": "__MSG_appName__",
-    "version": "1.0",
-    "description": "__MSG_appDesc__",
-    "default_locale": "en",
-    "icons": {
-      "128": "icon128.png"
-    },
-    "browser_action": {
-      "default_icon": "icon128.png",
-      "default_popup": "settings.html"
-    },
-    "background": {
-      "scripts": ["background.js"]
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"],
-        "run_at": "document_end"
-      }
-    ],
-    "permissions": [
-      "activeTab",
-      "storage"
-    ],
-    "commands": {
-      "video-speed-up": {
-        "suggested_key": {
-          "default": "Ctrl+Shift+U",
-          "mac": "Command+Shift+U"
-        },
-        "description": "__MSG_Speed_up__"
+  "manifest_version": 2,
+  "name": "__MSG_appName__",
+  "version": "1.2",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "icon128.png",
+    "default_popup": "settings.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads"
+  ],
+  "commands": {
+    "video-speed-up": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
       },
-      "video-speed-down": {
-        "suggested_key": {
-          "default": "Ctrl+Shift+Y",
-          "mac": "Command+Shift+Y"
-        },
-        "description": "__MSG_Speed_down__"
-      }
+      "description": "__MSG_Speed_up__"
+    },
+    "video-speed-down": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "__MSG_Speed_down__"
     }
   }
+}

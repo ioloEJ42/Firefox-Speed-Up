@@ -1,45 +1,226 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="popupTitle"></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --border-color: #e0e0e0;
+      --highlight-color: #3498db;
+    }
+    
     body {
-      width: 300px;
-      padding: 10px;
-      font-family: Arial, sans-serif;
+      width: 320px;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 16px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
-    h1 {
-      font-size: 18px;
-      margin-bottom: 10px;
+
+    .dark-mode {
+      --bg-color: #222222;
+      --text-color: #f0f0f0;
+      --border-color: #444444;
+      --highlight-color: #2980b9;
     }
-    label {
+
+    h1, h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .toggle-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--highlight-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .option-group {
+      margin-bottom: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .option-group label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
-    #shortcut-list {
-      margin-top: 10px;
-      padding-left: 20px;
+
+    .preset-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .preset-button {
+      padding: 8px 16px;
+      background-color: var(--highlight-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .preset-button:hover {
+      opacity: 0.8;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .slider-container input[type="range"] {
+      flex-grow: 1;
+      margin-right: 8px;
+    }
+
+    .slider-value {
+      min-width: 40px;
+    }
+
+    .skip-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .skip-button {
+      padding: 8px 16px;
+      background-color: var(--highlight-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .skip-button:hover {
+      opacity: 0.8;
+    }
+
+    .screenshot-button {
+      display: block;
+      width: 100%;
+      padding: 8px 16px;
+      background-color: var(--highlight-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+
+    .screenshot-button:hover {
+      opacity: 0.8;
+    }
+
+    .info-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--highlight-color);
+      text-decoration: none;
+    }
+
+    .info-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <div class="toggle-container">
+    <label class="toggle-switch">
+      <input type="checkbox" id="darkModeToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
   <h1 id="popupTitle"></h1>
-  <a id="popupInfo" class="info" target="_blank" href="https://github.com/your-username/your-repo#how-to-use"></a>
 
-  <form>
-    <label>
-      <input type="radio" name="apply-option" id="apply-all">
-      <span id="popup-apply-all-message"></span>
-    </label>
-    <label>
-      <input type="radio" name="apply-option" id="apply-tab">
-      <span id="popup-apply-tab-message"></span>
-    </label>
-  </form>
+  <div class="option-group">
+    <h2 id="speedPresetsTitle"></h2>
+    <div class="preset-buttons">
+      <button class="preset-button" data-speed="0.5">0.5x</button>
+      <button class="preset-button" data-speed="1">1x</button>
+      <button class="preset-button" data-speed="1.5">1.5x</button>
+      <button class="preset-button" data-speed="2">2x</button>
+    </div>
+  </div>
 
-  <h2>Current Shortcuts:</h2>
-  <ul id="shortcut-list"></ul>
+  <div class="option-group">
+    <h2 id="speedControlTitle"></h2>
+    <div class="slider-container">
+      <input type="range" id="speedSlider" min="0.1" max="4" step="0.1" value="1">
+      <span class="slider-value" id="speedValue">1x</span>
+    </div>
+  </div>
+
+  <div class="option-group">
+    <h2 id="skipIntervalTitle"></h2>
+    <div class="skip-buttons">
+      <button class="skip-button" data-skip="-10">-10s</button>
+      <button class="skip-button" data-skip="-5">-5s</button>
+      <button class="skip-button" data-skip="5">+5s</button>
+      <button class="skip-button" data-skip="10">+10s</button>
+    </div>
+  </div>
+
+  <button id="screenshotButton" class="screenshot-button"></button>
+
+  <a id="popupInfo" class="info-link" target="_blank" href="https://github.com/your-username/your-repo#how-to-use"></a>
 
   <script src="settings.js"></script>
 </body>

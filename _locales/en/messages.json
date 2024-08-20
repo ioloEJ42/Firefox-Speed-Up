@@ -1,34 +1,42 @@
 {
-    "appName": {
-      "message": "Video Speed Controller",
-      "description": "The name of the extension"
-    },
-    "appDesc": {
-      "message": "Control HTML5 video and audio playback speed with keyboard shortcuts",
-      "description": "The description of the extension"
-    },
-    "popupTitle": {
-      "message": "Video Speed Controller Settings",
-      "description": "The title of the settings popup"
-    },
-    "popupInfo": {
-      "message": "How to use",
-      "description": "Link text for usage instructions"
-    },
-    "popup-apply-all-message": {
-      "message": "Apply to all tabs",
-      "description": "Option to apply speed settings to all tabs"
-    },
-    "popup-apply-tab-message": {
-      "message": "Apply to current tab only",
-      "description": "Option to apply speed settings to the current tab only"
-    },
-    "Speed_up": {
-      "message": "Speed up playback",
-      "description": "Description for the speed up command"
-    },
-    "Speed_down": {
-      "message": "Slow down playback",
-      "description": "Description for the slow down command"
-    }
+  "appName": {
+    "message": "Video Speed Controller",
+    "description": "The name of the extension"
+  },
+  "appDesc": {
+    "message": "Control HTML5 video and audio playback speed with additional features",
+    "description": "The description of the extension"
+  },
+  "popupTitle": {
+    "message": "Video Speed Controller",
+    "description": "The title of the settings popup"
+  },
+  "speedPresetsTitle": {
+    "message": "Speed Presets",
+    "description": "Title for the speed presets section"
+  },
+  "speedControlTitle": {
+    "message": "Fine Speed Control",
+    "description": "Title for the speed control slider section"
+  },
+  "skipIntervalTitle": {
+    "message": "Skip Interval",
+    "description": "Title for the skip interval section"
+  },
+  "screenshotButton": {
+    "message": "Capture Screenshot",
+    "description": "Text for the screenshot capture button"
+  },
+  "popupInfo": {
+    "message": "How to use",
+    "description": "Link text for usage instructions"
+  },
+  "Speed_up": {
+    "message": "Speed up playback",
+    "description": "Description for the speed up command"
+  },
+  "Speed_down": {
+    "message": "Slow down playback",
+    "description": "Description for the slow down command"
   }
+}
