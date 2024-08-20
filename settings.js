@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const speedValue = document.getElementById('speedValue');
     const presetButtons = document.querySelectorAll('.preset-button');
     const skipButtons = document.querySelectorAll('.skip-button');
-    const screenshotButton = document.getElementById('screenshotButton');
 
     // Load and apply dark mode setting
     browser.storage.local.get('darkMode').then(result => {
@@ -43,17 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const interval = parseInt(this.dataset.skip);
             sendMessageToActiveTab({ command: "skipInterval", interval: interval });
         });
-    });
-
-    // Screenshot button functionality
-    screenshotButton.addEventListener('click', function() {
-        browser.runtime.sendMessage({ command: "captureScreenshot" })
-            .then(() => {
-                console.log("Screenshot captured");
-            })
-            .catch(error => {
-                console.error("Error capturing screenshot:", error);
-            });
     });
 
     // Function to send message to active tab
@@ -105,10 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Set localized strings
-    document.getElementById('popupTitle').textContent = browser.i18n.getMessage('popupTitle');
     document.getElementById('speedPresetsTitle').textContent = browser.i18n.getMessage('speedPresetsTitle');
     document.getElementById('speedControlTitle').textContent = browser.i18n.getMessage('speedControlTitle');
     document.getElementById('skipIntervalTitle').textContent = browser.i18n.getMessage('skipIntervalTitle');
-    document.getElementById('screenshotButton').textContent = browser.i18n.getMessage('screenshotButton');
-    document.getElementById('popupInfo').textContent = browser.i18n.getMessage('popupInfo');
 });

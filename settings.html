@@ -14,10 +14,10 @@
     }
     
     body {
-      width: 320px;
+      width: 250px;
       font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 16px;
+      padding: 12px;
       background-color: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
@@ -30,23 +30,23 @@
       --highlight-color: #2980b9;
     }
 
-    h1, h2 {
-      margin-top: 0;
-      margin-bottom: 16px;
+    h2 {
+      font-size: 14px;
+      margin: 0 0 8px 0;
       font-weight: 600;
     }
 
     .toggle-container {
       display: flex;
       justify-content: flex-end;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .toggle-switch {
       position: relative;
       display: inline-block;
-      width: 60px;
-      height: 34px;
+      width: 40px;
+      height: 20px;
     }
 
     .toggle-switch input {
@@ -64,16 +64,16 @@
       bottom: 0;
       background-color: #ccc;
       transition: .4s;
-      border-radius: 34px;
+      border-radius: 20px;
     }
 
     .slider:before {
       position: absolute;
       content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
       background-color: white;
       transition: .4s;
       border-radius: 50%;
@@ -84,34 +84,27 @@
     }
 
     input:checked + .slider:before {
-      transform: translateX(26px);
+      transform: translateX(20px);
     }
 
     .option-group {
-      margin-bottom: 16px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 12px;
-    }
-
-    .option-group label {
-      display: block;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .preset-buttons {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .preset-button {
-      padding: 8px 16px;
+      padding: 4px 8px;
       background-color: var(--highlight-color);
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-size: 12px;
     }
 
     .preset-button:hover {
@@ -121,7 +114,7 @@
     .slider-container {
       display: flex;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .slider-container input[type="range"] {
@@ -131,52 +124,27 @@
 
     .slider-value {
       min-width: 40px;
+      font-size: 12px;
     }
 
     .skip-buttons {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .skip-button {
-      padding: 8px 16px;
+      padding: 4px 8px;
       background-color: var(--highlight-color);
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-size: 12px;
     }
 
     .skip-button:hover {
       opacity: 0.8;
-    }
-
-    .screenshot-button {
-      display: block;
-      width: 100%;
-      padding: 8px 16px;
-      background-color: var(--highlight-color);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 16px;
-    }
-
-    .screenshot-button:hover {
-      opacity: 0.8;
-    }
-
-    .info-link {
-      display: inline-block;
-      margin-top: 16px;
-      color: var(--highlight-color);
-      text-decoration: none;
-    }
-
-    .info-link:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -187,8 +155,6 @@
       <span class="slider"></span>
     </label>
   </div>
-
-  <h1 id="popupTitle"></h1>
 
   <div class="option-group">
     <h2 id="speedPresetsTitle"></h2>
@@ -217,10 +183,6 @@
       <button class="skip-button" data-skip="10">+10s</button>
     </div>
   </div>
-
-  <button id="screenshotButton" class="screenshot-button"></button>
-
-  <a id="popupInfo" class="info-link" target="_blank" href="https://github.com/your-username/your-repo#how-to-use"></a>
 
   <script src="settings.js"></script>
 </body>

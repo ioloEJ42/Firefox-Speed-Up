@@ -19,9 +19,6 @@ browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       });
     }
     setIconBadgeTextFromValue(tabId, value);
-  } else if (request.command === "captureScreenshot") {
-    captureScreenshot(sender.tab.id).then(sendResponse);
-    return true;  // Will respond asynchronously
   }
 });
 
@@ -55,19 +52,6 @@ function sendMessageToContentScript(tabId, message) {
     .catch(error => {
       console.error("Error sending message to content script:", error);
       throw error;
-    });
-}
-
-function captureScreenshot(tabId) {
-  console.log("Capturing screenshot for tab:", tabId);
-  return browser.tabs.captureVisibleTab(tabId, { format: "png" })
-    .then(dataUrl => {
-      const timestamp = new Date().toISOString().replace(/:/g, "-");
-      return browser.downloads.download({
-        url: dataUrl,
-        filename: `screenshot-${timestamp}.png`,
-        saveAs: true
-      });
     });
 }
 

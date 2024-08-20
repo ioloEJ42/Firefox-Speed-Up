@@ -7,10 +7,6 @@
     "message": "Control HTML5 video and audio playback speed with additional features",
     "description": "The description of the extension"
   },
-  "popupTitle": {
-    "message": "Video Speed Controller",
-    "description": "The title of the settings popup"
-  },
   "speedPresetsTitle": {
     "message": "Speed Presets",
     "description": "Title for the speed presets section"
@@ -23,13 +19,9 @@
     "message": "Skip Interval",
     "description": "Title for the skip interval section"
   },
-  "screenshotButton": {
-    "message": "Capture Screenshot",
-    "description": "Text for the screenshot capture button"
-  },
-  "popupInfo": {
-    "message": "How to use",
-    "description": "Link text for usage instructions"
+  "captureButton": {
+    "message": "Capture Frame",
+    "description": "Text for the frame capture button"
   },
   "Speed_up": {
     "message": "Speed up playback",
