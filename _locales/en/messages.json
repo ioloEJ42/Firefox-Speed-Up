@@ -19,9 +19,9 @@
     "message": "Skip Interval",
     "description": "Title for the skip interval section"
   },
-  "captureButton": {
-    "message": "Capture Frame",
-    "description": "Text for the frame capture button"
+  "keyboardShortcutsTitle": {
+    "message": "Keyboard Shortcuts",
+    "description": "Title for the keyboard shortcuts section"
   },
   "Speed_up": {
     "message": "Speed up playback",

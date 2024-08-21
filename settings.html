@@ -146,6 +146,22 @@
     .skip-button:hover {
       opacity: 0.8;
     }
+
+    .shortcuts-list {
+      font-size: 12px;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .shortcuts-list li {
+      margin-bottom: 4px;
+    }
+
+    .shortcut-key {
+      font-weight: bold;
+      color: var(--highlight-color);
+    }
   </style>
 </head>
 <body>
@@ -182,6 +198,11 @@
       <button class="skip-button" data-skip="5">+5s</button>
       <button class="skip-button" data-skip="10">+10s</button>
     </div>
+  </div>
+
+  <div class="option-group">
+    <h2 id="keyboardShortcutsTitle"></h2>
+    <ul class="shortcuts-list" id="shortcutsList"></ul>
   </div>
 
   <script src="settings.js"></script>

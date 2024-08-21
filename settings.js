@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const speedValue = document.getElementById('speedValue');
     const presetButtons = document.querySelectorAll('.preset-button');
     const skipButtons = document.querySelectorAll('.skip-button');
+    const shortcutsList = document.getElementById('shortcutsList');
 
     // Load and apply dark mode setting
     browser.storage.local.get('darkMode').then(result => {
@@ -96,4 +97,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('speedPresetsTitle').textContent = browser.i18n.getMessage('speedPresetsTitle');
     document.getElementById('speedControlTitle').textContent = browser.i18n.getMessage('speedControlTitle');
     document.getElementById('skipIntervalTitle').textContent = browser.i18n.getMessage('skipIntervalTitle');
+    document.getElementById('keyboardShortcutsTitle').textContent = browser.i18n.getMessage('keyboardShortcutsTitle');
+
+    // Display keyboard shortcuts
+    browser.commands.getAll().then((commands) => {
+        commands.forEach((command) => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="shortcut-key">${command.shortcut || 'Not set'}</span>: ${command.description}`;
+            shortcutsList.appendChild(li);
+        });
+    });
 });
