@@ -30,5 +30,13 @@
   "Speed_down": {
     "message": "إبطاء التشغيل",
     "description": "وصف أمر تقليل السرعة"
+  },
+  "speedUpPlayback": {
+    "message": "تسريع التشغيل",
+    "description": "نص لإجراء تسريع التشغيل"
+  },
+  "slowDownPlayback": {
+    "message": "إبطاء التشغيل",
+    "description": "نص لإجراء إبطاء التشغيل"
   }
 }

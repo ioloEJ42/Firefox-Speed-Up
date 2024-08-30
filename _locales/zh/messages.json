@@ -30,5 +30,13 @@
   "Speed_down": {
     "message": "减慢播放",
     "description": "减速命令的描述"
+  },
+  "speedUpPlayback": {
+    "message": "加快播放",
+    "description": "加快播放速度的操作文本"
+  },
+  "slowDownPlayback": {
+    "message": "减慢播放",
+    "description": "减慢播放速度的操作文本"
   }
 }

@@ -30,5 +30,13 @@
   "Speed_down": {
     "message": "Slow down playback",
     "description": "Description for the slow down command"
+  },
+  "speedUpPlayback": {
+    "message": "Speed up playback",
+    "description": "Text for the action of speeding up playback"
+  },
+  "slowDownPlayback": {
+    "message": "Slow down playback",
+    "description": "Text for the action of slowing down playback"
   }
 }

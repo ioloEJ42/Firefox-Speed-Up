@@ -30,5 +30,13 @@
   "resetSpeedShortcut": {
     "message": "Restablecer velocidad",
     "description": "Etiqueta para el atajo de restablecer velocidad"
+  },
+  "speedUpPlayback": {
+    "message": "Acelerar reproducción",
+    "description": "Texto para la acción de acelerar la reproducción"
+  },
+  "slowDownPlayback": {
+    "message": "Ralentizar reproducción",
+    "description": "Texto para la acción de ralentizar la reproducción"
   }
 }

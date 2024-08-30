@@ -30,5 +30,13 @@
   "resetSpeedShortcut": {
     "message": "Geschwindigkeit zurücksetzen",
     "description": "Beschriftung für das Tastaturkürzel zum Zurücksetzen der Geschwindigkeit"
+  },
+  "speedUpPlayback": {
+    "message": "Wiedergabe beschleunigen",
+    "description": "Text für die Aktion zum Beschleunigen der Wiedergabe"
+  },
+  "slowDownPlayback": {
+    "message": "Wiedergabe verlangsamen",
+    "description": "Text für die Aktion zum Verlangsamen der Wiedergabe"
   }
 }

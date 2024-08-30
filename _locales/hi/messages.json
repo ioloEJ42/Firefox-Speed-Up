@@ -30,5 +30,13 @@
   "Speed_down": {
     "message": "प्लेबैक गति कम करें",
     "description": "गति कम करने के कमांड का विवरण"
+  },
+  "speedUpPlayback": {
+    "message": "प्लेबैक तेज़ करें",
+    "description": "प्लेबैक को तेज़ करने की क्रिया के लिए टेक्स्ट"
+  },
+  "slowDownPlayback": {
+    "message": "प्लेबैक धीमा करें",
+    "description": "प्लेबैक को धीमा करने की क्रिया के लिए टेक्स्ट"
   }
 }
