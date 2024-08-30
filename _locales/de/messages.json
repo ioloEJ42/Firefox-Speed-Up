@@ -1,0 +1,34 @@
+{
+  "extensionName": {
+    "message": "Video-Geschwindigkeitseditor",
+    "description": "Name der Erweiterung"
+  },
+  "extensionDescription": {
+    "message": "Steuern Sie die Wiedergabegeschwindigkeit von Online-Videos mit Tastaturkürzeln und anpassbaren Voreinstellungen.",
+    "description": "Beschreibung der Erweiterung"
+  },
+  "speedPresetsTitle": {
+    "message": "Geschwindigkeitsvoreinstellungen",
+    "description": "Titel für den Abschnitt der Geschwindigkeitsvoreinstellungen"
+  },
+  "customSpeedTitle": {
+    "message": "Benutzerdefinierte Geschwindigkeit",
+    "description": "Titel für den Abschnitt der benutzerdefinierten Geschwindigkeit"
+  },
+  "keyboardShortcutsTitle": {
+    "message": "Tastaturkürzel",
+    "description": "Titel für den Abschnitt der Tastaturkürzel"
+  },
+  "increaseSpeedShortcut": {
+    "message": "Geschwindigkeit erhöhen",
+    "description": "Beschriftung für das Tastaturkürzel zum Erhöhen der Geschwindigkeit"
+  },
+  "decreaseSpeedShortcut": {
+    "message": "Geschwindigkeit verringern",
+    "description": "Beschriftung für das Tastaturkürzel zum Verringern der Geschwindigkeit"
+  },
+  "resetSpeedShortcut": {
+    "message": "Geschwindigkeit zurücksetzen",
+    "description": "Beschriftung für das Tastaturkürzel zum Zurücksetzen der Geschwindigkeit"
+  }
+}

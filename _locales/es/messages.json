@@ -1,0 +1,34 @@
+{
+  "extensionName": {
+    "message": "Editor de Velocidad de Video",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "Controla la velocidad de reproducción de videos en línea con atajos de teclado y preajustes personalizables.",
+    "description": "Descripción de la extensión"
+  },
+  "speedPresetsTitle": {
+    "message": "Preajustes de velocidad",
+    "description": "Título para la sección de preajustes de velocidad"
+  },
+  "customSpeedTitle": {
+    "message": "Velocidad personalizada",
+    "description": "Título para la sección de velocidad personalizada"
+  },
+  "keyboardShortcutsTitle": {
+    "message": "Atajos de teclado",
+    "description": "Título para la sección de atajos de teclado"
+  },
+  "increaseSpeedShortcut": {
+    "message": "Aumentar velocidad",
+    "description": "Etiqueta para el atajo de aumentar velocidad"
+  },
+  "decreaseSpeedShortcut": {
+    "message": "Disminuir velocidad",
+    "description": "Etiqueta para el atajo de disminuir velocidad"
+  },
+  "resetSpeedShortcut": {
+    "message": "Restablecer velocidad",
+    "description": "Etiqueta para el atajo de restablecer velocidad"
+  }
+}

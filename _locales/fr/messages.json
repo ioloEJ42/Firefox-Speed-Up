@@ -1,0 +1,34 @@
+{
+  "extensionName": {
+    "message": "Éditeur de Vitesse Vidéo",
+    "description": "Nom de l'extension"
+  },
+  "extensionDescription": {
+    "message": "Contrôlez la vitesse de lecture des vidéos en ligne avec des raccourcis clavier et des préréglages personnalisables.",
+    "description": "Description de l'extension"
+  },
+  "speedPresetsTitle": {
+    "message": "Préréglages de vitesse",
+    "description": "Titre pour la section des préréglages de vitesse"
+  },
+  "customSpeedTitle": {
+    "message": "Vitesse personnalisée",
+    "description": "Titre pour la section de vitesse personnalisée"
+  },
+  "keyboardShortcutsTitle": {
+    "message": "Raccourcis clavier",
+    "description": "Titre pour la section des raccourcis clavier"
+  },
+  "increaseSpeedShortcut": {
+    "message": "Augmenter la vitesse",
+    "description": "Étiquette pour le raccourci d'augmentation de la vitesse"
+  },
+  "decreaseSpeedShortcut": {
+    "message": "Diminuer la vitesse",
+    "description": "Étiquette pour le raccourci de diminution de la vitesse"
+  },
+  "resetSpeedShortcut": {
+    "message": "Réinitialiser la vitesse",
+    "description": "Étiquette pour le raccourci de réinitialisation de la vitesse"
+  }
+}
