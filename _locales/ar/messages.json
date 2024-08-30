@@ -1,0 +1,34 @@
+{
+  "appName": {
+    "message": "متحكم سرعة الفيديو",
+    "description": "اسم الإضافة"
+  },
+  "appDesc": {
+    "message": "التحكم في سرعة تشغيل فيديو وصوت HTML5 مع ميزات إضافية",
+    "description": "وصف الإضافة"
+  },
+  "speedPresetsTitle": {
+    "message": "إعدادات السرعة المسبقة",
+    "description": "عنوان قسم إعدادات السرعة المسبقة"
+  },
+  "speedControlTitle": {
+    "message": "التحكم الدقيق في السرعة",
+    "description": "عنوان قسم شريط التحكم في السرعة"
+  },
+  "skipIntervalTitle": {
+    "message": "فترة التخطي",
+    "description": "عنوان قسم فترة التخطي"
+  },
+  "keyboardShortcutsTitle": {
+    "message": "اختصارات لوحة المفاتيح",
+    "description": "عنوان قسم اختصارات لوحة المفاتيح"
+  },
+  "Speed_up": {
+    "message": "زيادة سرعة التشغيل",
+    "description": "وصف أمر زيادة السرعة"
+  },
+  "Speed_down": {
+    "message": "إبطاء التشغيل",
+    "description": "وصف أمر تقليل السرعة"
+  }
+}

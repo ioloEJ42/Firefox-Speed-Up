@@ -1,0 +1,34 @@
+{
+  "appName": {
+    "message": "视频速度控制器",
+    "description": "扩展的名称"
+  },
+  "appDesc": {
+    "message": "控制HTML5视频和音频播放速度，并提供额外功能",
+    "description": "扩展的描述"
+  },
+  "speedPresetsTitle": {
+    "message": "速度预设",
+    "description": "速度预设部分的标题"
+  },
+  "speedControlTitle": {
+    "message": "精细速度控制",
+    "description": "速度控制滑块部分的标题"
+  },
+  "skipIntervalTitle": {
+    "message": "跳过间隔",
+    "description": "跳过间隔部分的标题"
+  },
+  "keyboardShortcutsTitle": {
+    "message": "键盘快捷键",
+    "description": "键盘快捷键部分的标题"
+  },
+  "Speed_up": {
+    "message": "加快播放",
+    "description": "加速命令的描述"
+  },
+  "Speed_down": {
+    "message": "减慢播放",
+    "description": "减速命令的描述"
+  }
+}

@@ -30,5 +30,13 @@
   "resetSpeedShortcut": {
     "message": "Réinitialiser la vitesse",
     "description": "Étiquette pour le raccourci de réinitialisation de la vitesse"
+  },
+  "speedUpPlayback": {
+    "message": "Accélérer la lecture",
+    "description": "Texte pour l'action d'accélérer la lecture"
+  },
+  "slowDownPlayback": {
+    "message": "Ralentir la lecture",
+    "description": "Texte pour l'action de ralentir la lecture"
   }
 }
