@@ -1,210 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="popupTitle"></title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #333333;
-      --border-color: #e0e0e0;
-      --highlight-color: #3498db;
-    }
-    
-    body {
-      width: 250px;
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 12px;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
-    }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="popupTitle"></title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --border-color: #e0e0e0;
+        --highlight-color: #3498db;
+      }
 
-    .dark-mode {
-      --bg-color: #222222;
-      --text-color: #f0f0f0;
-      --border-color: #444444;
-      --highlight-color: #2980b9;
-    }
+      body {
+        width: 250px;
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 12px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+      }
 
-    h2 {
-      font-size: 14px;
-      margin: 0 0 8px 0;
-      font-weight: 600;
-    }
+      .dark-mode {
+        --bg-color: #222222;
+        --text-color: #f0f0f0;
+        --border-color: #444444;
+        --highlight-color: #2980b9;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
 
-    .toggle-container {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 12px;
-    }
+      .main-title {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0; /* Remove bottom margin to align with the toggle button */
+      }
 
-    .toggle-switch {
-      position: relative;
-      display: inline-block;
-      width: 40px;
-      height: 20px;
-    }
+      h2 {
+        font-size: 14px;
+        margin: 0 0 8px 0;
+        font-weight: 600;
+      }
 
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
+      .toggle-container {
+        display: flex;
+        align-items: center; /* Ensure the toggle is vertically centered */
+      }
 
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 20px;
-    }
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+      }
 
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 16px;
-      width: 16px;
-      left: 2px;
-      bottom: 2px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-    }
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
 
-    input:checked + .slider {
-      background-color: var(--highlight-color);
-    }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 20px;
+      }
 
-    input:checked + .slider:before {
-      transform: translateX(20px);
-    }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
 
-    .option-group {
-      margin-bottom: 12px;
-    }
+      input:checked + .slider {
+        background-color: var(--highlight-color);
+      }
 
-    .preset-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
+      input:checked + .slider:before {
+        transform: translateX(20px);
+      }
 
-    .preset-button {
-      padding: 4px 8px;
-      background-color: var(--highlight-color);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 12px;
-    }
+      .option-group {
+        margin-bottom: 12px;
+      }
 
-    .preset-button:hover {
-      opacity: 0.8;
-    }
+      .preset-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
 
-    .slider-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-    }
+      .preset-button {
+        padding: 4px 8px;
+        background-color: var(--highlight-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+      }
 
-    .slider-container input[type="range"] {
-      flex-grow: 1;
-      margin-right: 8px;
-    }
+      .preset-button:hover {
+        opacity: 0.8;
+      }
 
-    .slider-value {
-      min-width: 40px;
-      font-size: 12px;
-    }
+      .slider-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+      }
 
-    .skip-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
+      .slider-container input[type="range"] {
+        flex-grow: 1;
+        margin-right: 8px;
+      }
 
-    .skip-button {
-      padding: 4px 8px;
-      background-color: var(--highlight-color);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 12px;
-    }
+      .slider-value {
+        min-width: 40px;
+        font-size: 12px;
+      }
 
-    .skip-button:hover {
-      opacity: 0.8;
-    }
+      .skip-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
 
-    .shortcuts-list {
-      font-size: 12px;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
+      .skip-button {
+        padding: 4px 8px;
+        background-color: var(--highlight-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+      }
 
-    .shortcuts-list li {
-      margin-bottom: 4px;
-    }
+      .skip-button:hover {
+        opacity: 0.8;
+      }
 
-    .shortcut-key {
-      font-weight: bold;
-      color: var(--highlight-color);
-    }
-  </style>
-</head>
-<body>
-  <div class="toggle-container">
-    <label class="toggle-switch">
-      <input type="checkbox" id="darkModeToggle">
-      <span class="slider"></span>
-    </label>
-  </div>
+      .shortcuts-list {
+        font-size: 12px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
 
-  <div class="option-group">
-    <h2 id="speedPresetsTitle"></h2>
-    <div class="preset-buttons">
-      <button class="preset-button" data-speed="0.5">0.5x</button>
-      <button class="preset-button" data-speed="1">1x</button>
-      <button class="preset-button" data-speed="1.5">1.5x</button>
-      <button class="preset-button" data-speed="2">2x</button>
+      .shortcuts-list li {
+        margin-bottom: 4px;
+      }
+
+      .shortcut-key {
+        font-weight: bold;
+        color: var(--highlight-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="main-title">Video Speed Editor</h1>
+      <div class="toggle-container">
+        <label class="toggle-switch">
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="option-group">
-    <h2 id="speedControlTitle"></h2>
-    <div class="slider-container">
-      <input type="range" id="speedSlider" min="0.1" max="4" step="0.1" value="1">
-      <span class="slider-value" id="speedValue">1x</span>
+    <div class="option-group">
+      <h2 id="speedPresetsTitle"></h2>
+      <div class="preset-buttons">
+        <button class="preset-button" data-speed="0.5">0.5x</button>
+        <button class="preset-button" data-speed="1">1x</button>
+        <button class="preset-button" data-speed="1.5">1.5x</button>
+        <button class="preset-button" data-speed="2">2x</button>
+      </div>
     </div>
-  </div>
 
-  <div class="option-group">
-    <h2 id="skipIntervalTitle"></h2>
-    <div class="skip-buttons">
-      <button class="skip-button" data-skip="-10">-10s</button>
-      <button class="skip-button" data-skip="-5">-5s</button>
-      <button class="skip-button" data-skip="5">+5s</button>
-      <button class="skip-button" data-skip="10">+10s</button>
+    <div class="option-group">
+      <h2 id="speedControlTitle"></h2>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="speedSlider"
+          min="0.1"
+          max="4"
+          step="0.1"
+          value="1"
+        />
+        <span class="slider-value" id="speedValue">1x</span>
+      </div>
     </div>
-  </div>
 
-  <div class="option-group">
-    <h2 id="keyboardShortcutsTitle"></h2>
-    <ul class="shortcuts-list" id="shortcutsList"></ul>
-  </div>
+    <div class="option-group">
+      <h2 id="skipIntervalTitle"></h2>
+      <div class="skip-buttons">
+        <button class="skip-button" data-skip="-10">-10s</button>
+        <button class="skip-button" data-skip="-5">-5s</button>
+        <button class="skip-button" data-skip="5">+5s</button>
+        <button class="skip-button" data-skip="10">+10s</button>
+      </div>
+    </div>
 
-  <script src="settings.js"></script>
-</body>
+    <div class="option-group">
+      <h2 id="keyboardShortcutsTitle"></h2>
+      <ul class="shortcuts-list" id="shortcutsList"></ul>
+    </div>
+
+    <script src="settings.js"></script>
+  </body>
 </html>
