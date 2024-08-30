@@ -32,14 +32,14 @@
         "default": "Ctrl+Shift+U",
         "mac": "Command+Shift+U"
       },
-      "description": "__MSG_Speed_up__"
+      "description": "__MSG_speedUpPlayback__"
     },
     "video-speed-down": {
       "suggested_key": {
         "default": "Ctrl+Shift+Y",
         "mac": "Command+Shift+Y"
       },
-      "description": "__MSG_Speed_down__"
+      "description": "__MSG_slowDownPlayback__"
     }
   }
 }

@@ -180,7 +180,7 @@
   </head>
   <body>
     <div class="header">
-      <h1 class="main-title">Video Speed Editor</h1>
+      <h1 class="main-title">Video Speed Controller</h1>
       <div class="toggle-container">
         <label class="toggle-switch">
           <input type="checkbox" id="darkModeToggle" />
@@ -226,7 +226,10 @@
 
     <div class="option-group">
       <h2 id="keyboardShortcutsTitle"></h2>
-      <ul class="shortcuts-list" id="shortcutsList"></ul>
+      <ul class="shortcuts-list" id="shortcutsList">
+        <li><span class="shortcut-key" id="speedUpShortcut"></span>: <span id="speedUpKey"></span></li>
+        <li><span class="shortcut-key" id="slowDownShortcut"></span>: <span id="slowDownKey"></span></li>
+      </ul>
     </div>
 
     <script src="settings.js"></script>
