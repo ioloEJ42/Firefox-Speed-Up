@@ -24,7 +24,8 @@
   ],
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "theme"
   ],
   "commands": {
     "video-speed-up": {

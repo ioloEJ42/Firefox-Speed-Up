@@ -1,3 +1,7 @@
+function detectSystemTheme() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const darkModeToggle = document.getElementById("darkModeToggle");
   const body = document.body;
@@ -9,16 +13,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load and apply dark mode setting
   browser.storage.local.get("darkMode").then((result) => {
-    if (result.darkMode) {
-      body.classList.add("dark-mode");
-      darkModeToggle.checked = true;
+    const storedDarkMode = result.darkMode;
+    if (storedDarkMode === undefined) {
+      // If no stored preference, use system preference
+      setTheme(detectSystemTheme());
+    } else {
+      // Use stored preference
+      setTheme(storedDarkMode);
     }
   });
 
+  // Function to set the theme
+  function setTheme(isDark) {
+    document.body.classList.toggle('dark-mode', isDark);
+    darkModeToggle.checked = isDark;
+    browser.storage.local.set({ darkMode: isDark });
+  }
+
   // Dark mode toggle functionality
   darkModeToggle.addEventListener("change", function () {
-    body.classList.toggle("dark-mode");
-    browser.storage.local.set({ darkMode: this.checked });
+    setTheme(this.checked);
+  });
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addListener(function(e) {
+    setTheme(e.matches);
   });
 
   // Speed slider functionality
@@ -126,5 +145,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }</span> ${description}`;
       shortcutsList.appendChild(li);
     });
+  });
+
+  // Add this listener for theme update messages
+  browser.runtime.onMessage.addListener((message) => {
+    if (message.action === "updateTheme") {
+      setTheme(message.isDark);
+    }
   });
 });

@@ -1,3 +1,7 @@
+function detectSystemTheme() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 browser.commands.onCommand.addListener(function (command) {
   console.log("Command received:", command);
   if (command === "video-speed-up") {
@@ -55,6 +59,18 @@ function sendMessageToContentScript(tabId, message) {
     });
 }
 
+// Add this event listener
+browser.runtime.onInstalled.addListener(function(details) {
+  if (details.reason === "install" || details.reason === "update") {
+    browser.storage.local.get('darkMode').then(result => {
+      if (result.darkMode === undefined) {
+        const isDarkMode = detectSystemTheme();
+        browser.storage.local.set({ darkMode: isDarkMode });
+      }
+    });
+  }
+});
+
 // Load settings from storage on startup
 browser.storage.local.get('speedStep').then(result => {
   if (!result.speedStep) {
@@ -64,3 +80,46 @@ browser.storage.local.get('speedStep').then(result => {
     console.log("Loaded speedStep from storage:", result.speedStep);
   }
 });
+
+// Helper function to convert hex to RGB
+function hexToRgb(hex) {
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : null;
+}
+
+// Listen for browser theme changes
+browser.theme.onUpdated.addListener((updateInfo) => {
+  // Check if the theme update includes changes to the colors
+  if (updateInfo.theme && updateInfo.theme.colors) {
+    // Determine if the new theme is dark based on the background color
+    const bgColor = updateInfo.theme.colors.frame || updateInfo.theme.colors.accentcolor;
+    if (bgColor) {
+      // Convert the color to RGB if it's not already
+      const rgb = bgColor.startsWith('rgb') ? bgColor : hexToRgb(bgColor);
+      const [r, g, b] = rgb.match(/\d+/g).map(Number);
+      
+      // Calculate perceived brightness
+      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+      
+      // If brightness is less than 128, consider it a dark theme
+      const isDark = brightness < 128;
+      
+      setTheme(isDark);
+    }
+  } else {
+    // If no specific theme is set, fall back to system preference
+    setTheme(isSystemDarkMode());
+  }
+});
+
+function isSystemDarkMode() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+function setTheme(isDark) {
+  browser.storage.local.set({ darkMode: isDark });
+  // Notify all open popups to update their theme
+  browser.runtime.sendMessage({ action: "updateTheme", isDark: isDark });
+}
