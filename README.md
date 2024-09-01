@@ -1,32 +1,51 @@
 # Video Speed Controller
 
-**Video Speed Controller** is a browser extension that enhances your video watching experience by providing easy-to-use controls for adjusting playback speed and navigating through videos.
+## Description
 
-## Features
+Video Speed Controller is a browser extension that allows users to control the playback speed of HTML5 videos and audio with keyboard shortcuts and customizable presets. It also supports automatic theme detection to match the user's system theme.
 
-- **Speed Control:** Adjust video playback speed from 0.1x to 4x.
-- **Speed Presets:** Quickly set speed to 0.5x, 1x, 1.5x, or 2x with preset buttons.
-- **Keyboard Shortcuts:** Use keyboard shortcuts to speed up or slow down videos.
-- **Skip Intervals:** Jump forward or backward in the video by 5 or 10 seconds.
-- **Dark Mode:** Toggle between light and dark themes for the extension popup.
-- **Persistent Settings:** Your speed settings are remembered across browser sessions.
-- **Multiple Video Support:** Works with HTML5 video and audio elements across various websites.
+## Problem Statement
+
+Many online video players do not provide sufficient controls for adjusting playback speed. Users often have to rely on the default speed options, which may not meet their needs. Additionally, there is a lack of seamless integration with system themes, leading to inconsistent user experiences.
+
+## Solution
+
+Video Speed Controller addresses these issues by providing a comprehensive set of controls for adjusting playback speed, including keyboard shortcuts and customizable presets. It also automatically detects and applies the user's system theme, ensuring a consistent and visually appealing experience.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
-1. Download the extension files or clone this repository.
-2. Open your Firefox browser and navigate to `about:debugging`.
-3. Click on "This Firefox" in the left sidebar.
-4. Click on "Load Temporary Add-on" and select the `manifest.json` file from the extension directory.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/video-speed-controller.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd video-speed-controller
+   ```
+3. Load the extension in your browser:
+   - **Chrome**:
+     1. Go to `chrome://extensions/`
+     2. Enable "Developer mode"
+     3. Click "Load unpacked" and select the project directory
+   - **Firefox**:
+     1. Go to `about:debugging#/runtime/this-firefox`
+     2. Click "Load Temporary Add-on"
+     3. Select the `manifest.json` file in the project directory
 
 ## Usage
 
-### Popup Controls
-
-- Click on the extension icon to open the popup.
-- Use the slider or preset buttons to adjust the playback speed.
-- Use the skip buttons to navigate through the video.
-- Toggle dark mode with the switch at the top of the popup.
+1. Click on the extension icon to open the popup.
+2. Use the slider or preset buttons to adjust the playback speed.
+3. Use the skip buttons to navigate through the video.
+4. Toggle dark mode with the switch at the top of the popup.
 
 ### Keyboard Shortcuts
 
@@ -35,29 +54,35 @@
 
 The current keyboard shortcuts are also displayed in the extension popup for easy reference.
 
-## Customization
+## Features
 
-You can customize the keyboard shortcuts:
-
-1. Go to `about:addons` in Firefox.
-2. Click on the gear icon and select "Manage Extension Shortcuts".
-3. Find "Video Speed Controller" and set your preferred shortcuts.
-
-## Development
-
-To modify or extend this extension:
-
-1. Clone this repository.
-2. Make your changes to the relevant files (`manifest.json`, `background.js`, `content.js`, `settings.html`, `settings.js`).
-3. Test your changes by loading the extension as a temporary add-on in Firefox.
-4. Update the version number in `manifest.json` if you're planning to distribute your modified version.
-
+- Control playback speed with keyboard shortcuts
+- Customizable speed presets
+- Automatic theme detection and application
+- Dark mode support
+- Easy-to-use popup interface
+- Persistent settings across browser sessions
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-branch
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-branch
+   ```
+5. Open a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the `LICENSE.md` file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 Made with <3 By Iolo Evans Jones
